@@ -1,0 +1,68 @@
+___________________________________________________Thought Note_____________________________________________________
+
+The folder structure of the To Do List App is as follows:
+
+SalesApp/	
+|
+|--backend
+|     |--controllers
+|          |--authController.js
+|          |--salesController.js
+|     |--middleware
+|          |--auth.js
+|     |--models
+|          |--Sale.js
+|          |--User.js
+|     |--routes
+|          |--authRoutes.js
+|     index.js
+|     .env
+|--frontend
+|     |--public
+|        |--..
+|     |--src
+|        |--components
+|           |--Navbar.js
+|           |--Pages
+|              |--AddSales.js
+|              |--Loading.css.js
+|              |--Login.js
+|              |--Logout.js
+|              |--Register.js
+|              |--Spinner.js
+|              |--TodaysSale.js
+|              |--TopFiveSales.js
+|      |--App.js
+|      |--index.js
+|      |--index.css
+|    
+
+In this project I have used the React command to build an app and start the app using the commands as follows:
+>> npx create-react-app <appName> (for creating app)
+>> npm i OR npm install (for node_modules folder)
+>> npm init -y (to initialize package.json file)
+>> npm start (for starting the app)
+
+When we start the app the user will be directed to Registration Page and after filling necessary details the user will be redirected to Login Page then the user will be redirected to the home page with users name on the navbar, after that the user can add sale entry as user can add the items or product with name, quantity and price.
+A default Domain name will be visible in top 5 sales but if the amount of a sale will be greater than the domain name, or any other product then the top 5 sales will be displayed on that page.
+Based on that the Total Revenue will get displayed on today's total revenue page.
+Finally after clicking on logout the user will be redirected to login page.
+
+The App.js in frontend folder will check if there is only authenticated user i.e. if the user is registered or logged in then only the Navbar will be visible so that only authenticated user can only add sale or see top 5 sales or can see total revenue or can logout.
+
+The middleware is used to provide authorization so that it verifies only authenticated users can access certain routes. It will check the secret key if not found then the error message will be thrown. As the name denotes it acts as a bridge between users so that user can connect with app and various tech., which will provide seamless service to user.
+
+Auth Controller will validate the user's registration and login details based on the details of user model. 
+If the entered username or password is correct it will generate a token for the user which can be used further for authentication purpose.  
+If the entered username or password is incorrect it will show an error message saying "Invalid Username/Password". 
+If the entered username or password is correct it will generate a token for the user which can be used further for authentication purpose.
+If the entered username or password is incorrect it will show an error message otherwise it will direct the  user to dashboard where they can see all the information
+If all fields are valid then it will generate a token for the user which can be used further for authentication.
+
+The sales controller will handle all the requests related to Sales which includes getting, adding, updating and deleting the data from Sales. The mentioned APIs will perform accordingly.
+
+The .env is used for security in which mongoDB url is there along with secret key.
+
+The index.js will connect all the controller or routes and if there will be any error while connecting with mongoDB then the error will be thrown on node.
+
+In short, this app is used to provide user with an interface to provide security as well along with many functionalities so that user can easily understand and use it.
